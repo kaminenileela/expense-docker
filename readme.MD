@@ -19,7 +19,7 @@ mysql -h mysql -u root -pExpenseApp@1
 troubleshooting:
 curl http://localhost:8080/transaction
 
-![alt text](../dockerfiles/flow.JPG)
+![alt text](flow.JPG)
 
 
 docker run -d -p 8080:8080 --name backend --network expense backend:1.0
