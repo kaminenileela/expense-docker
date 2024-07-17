@@ -36,3 +36,18 @@ docker build -t frontend:1.0 .
 docker run -d -p 80:80 --name frontend --network expense frontend:1.0
 nginx home directory: /etc/nginx/
 
+Docker compose:
+for sample docker compose Refer https://www.baeldung.com/ops/docker-compose
+we are building and running containers manually like 
+docker run -d -p 8080:8080 --name backend --network expense backend:1.0
+
+so we need to remember everything and how it depends on other and create it.
+1. i have to run docker containers manually.
+2. components are dependent on each other
+
+In docker compose, we can set explicit dependencies like terraform.
+
+after writing docker-compose.yaml, do docker compose up -d
+
+
+
