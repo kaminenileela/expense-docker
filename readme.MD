@@ -47,7 +47,13 @@ so we need to remember everything and how it depends on other and create it.
 
 In docker compose, we can set explicit dependencies like terraform.
 
-after writing docker-compose.yaml, do docker compose up -d
+after writing docker-compose.yaml, do docker compose up -d to run containers.
+docker compose down ---> to down all containers
+
+Volumes:
+containers are ephemeral by default, once you remove the container it will remove the data also.
+
+
 
 
 
