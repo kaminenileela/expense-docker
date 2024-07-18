@@ -37,6 +37,13 @@ docker run -d -p 80:80 --name frontend --network expense frontend:1.0
 nginx home directory: /etc/nginx/
 
 Docker compose:
+
+Docker compose is a tool where you can define all your services that can be up and down at a time.
+you can create dependencies between the services, can declare the networks and volumes.
+
+after writing docker-compose.yaml, do docker compose up -d to run containers.
+docker compose down ---> to down all containers
+
 for sample docker compose Refer https://www.baeldung.com/ops/docker-compose
 we are building and running containers manually like 
 docker run -d -p 8080:8080 --name backend --network expense backend:1.0
@@ -46,9 +53,6 @@ so we need to remember everything and how it depends on other and create it.
 2. components are dependent on each other
 
 In docker compose, we can set explicit dependencies like terraform.
-
-after writing docker-compose.yaml, do docker compose up -d to run containers.
-docker compose down ---> to down all containers
 
 Volumes:
 containers are ephemeral by default, once you remove the container it will remove the data also.
