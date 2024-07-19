@@ -56,6 +56,26 @@ In docker compose, we can set explicit dependencies like terraform.
 
 Volumes:
 containers are ephemeral by default, once you remove the container it will remove the data also.
+Docker will store data in WORKDIR: /var/lib/docker (we get when we do docker inspect).
+
+1. unnamed volumes:
+ create a directory in linux and mount to container using -v host-path:container-path.
+2. named volumes:
+ when we create volume using docker commands, docker will take care of that volume life cycle.
+ ex: docker volume create nginx
+     docker volume ls
+     docker run -d -p 80:80 -v nginx:/usr/share/nginx/html nginx
+     docker exec -it <container id> bash
+     cd /usr/share/nginx/html
+     rm -rf index.html
+     echo "this is named volume" > index.html
+     docker volume rm <volume-name>
+
+docker exec -it backend bash
+curl -o /dev/null -s -w 'Total: %{time_total}s\n' http://localhost:8080/transaction
+curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nTTFB: %{time_starttransfer}s\nTotal: %{time_total}s\n' http://localhost:8080/transaction
+
+
 
 
 
