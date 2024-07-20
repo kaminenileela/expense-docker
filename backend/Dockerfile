@@ -1,5 +1,5 @@
-# FROM node:20.15.0-alpine3.20
 FROM node:20
+# FROM node:20.15.0-alpine3.20
 EXPOSE 8080
 ENV DB_HOST=mysql
 #container name (i.e --name given to mysql)
