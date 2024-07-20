@@ -4,9 +4,9 @@ networks:
   default:
     name: expense
     external: true
-# volumes:
-#   mysql: # docker volume create mysql
-#     external: true # if true, you need to create manually
+volumes:
+  mysql: # docker volume create mysql
+    external: true # if true, you need to create manually
 services:
   mysql:
     image: mysql:1.0
@@ -16,10 +16,10 @@ services:
     #   - MYSQL_USER=expense
     #   - MYSQL_PASSWORD=ExpenseApp@1
     #   - MYSQL_DATABASE=transactions
-    # volumes:
-    # - source: mysql
-    #   target: /var/lib/mysql
-    #   type: volume # -v volume-name:/path/in/container
+    volumes:
+    - source: mysql
+      target: /var/lib/mysql
+      type: volume # -v volume-name:/path/in/container
   backend:
     image: backend:1.0
     container_name: backend
