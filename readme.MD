@@ -84,7 +84,7 @@ curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nTTFB: %{time_st
 
 ## 2. Keep Images Small
 - **Multi-Stage Builds:** Use multi-stage builds to minimize the final image size by only including necessary components.
-- **Remove Unnecessary Files:** Clean up package lists, cache files, and other unnecessary files to keep the image lean.
+- **Remove Unnecessary Files:** Clean up package lists, cache files, and other unnecessary files to keep the image clean.
 
 ## 3. Tag Images Properly
 - **Version Tagging:** Tag images with version numbers (e.g., `myapp:1.0`) instead of just using `latest` to avoid ambiguity and ensure consistency across deployments.
