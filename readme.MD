@@ -79,15 +79,12 @@ curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nTTFB: %{time_st
 Layering in docker:
 --------------------
 Docker follows intermediate containers and layering approach for better storage.
-Docker first creates container out of first instruction. runs the second instruction. 
+Docker first creates container out of first instruction, runs the second instruction, 
 create image out of it and then delete the intermediate container.
 
 docker system prune -a
 docker builder prune
 docker image prune
-
-set DOCKER_BUILDKIT=0
-env | grep DOCKER_BUILDKIT
 
 export DOCKER_BUILDKIT=0
 env | grep DOCKER_BUILDKIT
