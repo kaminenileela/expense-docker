@@ -76,6 +76,30 @@ docker exec -it backend bash
 curl -o /dev/null -s -w 'Total: %{time_total}s\n' http://localhost:8080/transaction
 curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nTTFB: %{time_starttransfer}s\nTotal: %{time_total}s\n' http://localhost:8080/transaction
 
+Layering in docker:
+--------------------
+Docker follows intermediate containers and layering approach for better storage.
+Docker first creates container out of first instruction. runs the second instruction. 
+create image out of it and then delete the intermediate container.
+
+docker system prune -a
+docker builder prune
+docker image prune
+
+set DOCKER_BUILDKIT=0
+env | grep DOCKER_BUILDKIT
+
+export DOCKER_BUILDKIT=0
+env | grep DOCKER_BUILDKIT
+
+when we do build after running above commands, use can see docker running in layers when you do below. 
+cd backend
+docker build -t backend:v1.0 .
+docker login 
+docker tag backend:v1.0 leelakamineni/backend:v1.0
+docker push leelakamineni/backend:v1.0
+-- you can also push frontend:v1.0 and mysql:v1.0.
+
 # Docker Best Practices
 
 ## 1. Use Official and Verified Images

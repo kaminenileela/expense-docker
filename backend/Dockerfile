@@ -4,9 +4,9 @@ EXPOSE 8080
 ENV DB_HOST=mysql
 #container name (i.e --name given to mysql)
 # RUN useradd expense
-RUN addgroup -S expense && adduser -S expense -G expense
-RUN mkdir /opt/server
-RUN chown expense:expense -R /opt/server
+RUN addgroup -S expense && adduser -S expense -G expense \
+    && mkdir /opt/server \
+    && chown expense:expense -R /opt/server
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js /opt/server/

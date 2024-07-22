@@ -8,7 +8,8 @@ volumes:
     external: true # if true, you need to create manually
 services:
   mysql:
-    image: mysql:1.0
+    # image: mysql:1.0
+    image: leelakamineni/mysql:v1.0
     container_name: mysql # --name mysql
     # environment:
       # - MYSQL_ROOT_PASSWORD=ExpenseApp@1
@@ -20,13 +21,14 @@ services:
       target: /var/lib/mysql
       type: volume # -v volume-name:/path/in/container
   backend:
-    image: backend:1.0
+    # image: backend:1.0
+    image: leelakamineni/backend:v1.0
     container_name: backend
     command: sh -c "sleep 20 && node /opt/server/index.js"
     depends_on: 
       - mysql
   frontend:
-    image: frontend:1.0
+    image: leelakamineni/frontend:v1.0
     container_name: frontend
     depends_on:
       - backend
