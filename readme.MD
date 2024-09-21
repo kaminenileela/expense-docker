@@ -1,3 +1,8 @@
+take raw link of install-docker.sh from git. 
+curl <raw link> | sudo bash
+
+for i in mysql backend frontend; do cd $i; docker build -t $i:v1.0 .; cd .. ; done
+
 Database is created first. we should load default data. 
 
 docker run -d -p 3306:3306 --name mysql --network expense mysql:1.0
@@ -5,7 +10,7 @@ docker run -d -p 8080:8080 --name backend --network expense backend:1.0
 
 you can check logs using
 docker logs mysql
-docker logs backend
+docker logs -f backend (to follow)
 
 TO test if backend connected to mysql or not 
 
